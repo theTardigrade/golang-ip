@@ -2,7 +2,7 @@ package ip
 
 import "net/http"
 
-func Get(r http.Request) (s string) {
+func Get(r *http.Request) (s string) {
 	s = r.Header.Get("X-Real-Ip")
 
 	if s == "" {
