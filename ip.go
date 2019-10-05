@@ -1,6 +1,9 @@
 package ip
 
-import "net/http"
+import (
+	"net"
+	"net/http"
+)
 
 func Get(r *http.Request) (s string) {
 	s = r.Header.Get("X-Real-Ip")
@@ -11,6 +14,14 @@ func Get(r *http.Request) (s string) {
 
 	if s == "" {
 		s = r.RemoteAddr
+	}
+
+	if s != "" {
+		if p := net.ParseIP(s); p != nil {
+			s = p.String()
+		} else {
+			s = ""
+		}
 	}
 
 	return s
