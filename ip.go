@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// Get returns a string representation of the client's IP address
 func Get(r *http.Request) (s string) {
 	s = r.Header.Get("X-Real-Ip")
 
