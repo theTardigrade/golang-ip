@@ -16,7 +16,7 @@ func Get(r *http.Request) (s string) {
 		s = r.RemoteAddr
 	}
 
-	if s != "" {
+	if s != "" { // remove port
 		splitS := strings.Split(s, "::")
 
 		if splitSLastIndex := len(splitS) - 1; splitSLastIndex >= 0 {
