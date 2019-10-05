@@ -1,7 +1,6 @@
 package ip
 
 import (
-	"fmt"
 	"net/http"
 	"strings"
 )
@@ -27,7 +26,6 @@ func Get(r *http.Request) (s string) {
 				splitSplitS = splitSplitS[:splitSplitSLastIndex]
 			}
 			splitS[splitSLastIndex] = strings.Join(splitSplitS, ":")
-			fmt.Println(splitSplitS)
 		}
 
 		s = strings.Join(splitS, "::")
