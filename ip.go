@@ -19,9 +19,9 @@ func Get(r *http.Request) (s string) {
 
 	if s != "" { // remove port
 		if strings.Contains(s, "::") {
-			s = removePortIPv6(s)
+			s = portRemoveIPv6(s)
 		} else {
-			s = removePortIPv4(s)
+			s = portRemoveIPv4(s)
 		}
 	}
 
